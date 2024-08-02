@@ -156,11 +156,17 @@ function renderDatacat(datacat) {
 }
 
 /////
-document.getElementById('fetchanime-button').addEventListener('click', fetchDataAnime);
+// Fetch Anime
+document.getElementById('fetchanime-button').addEventListener('click', () => {
+	const limit = document.getElementById('limit').value;
+	const query = document.getElementById('search').value;
+	const type = document.getElementById('category').value;
+	fetchDataAnime(limit, query, type);
+});
 
 async function fetchDataAnime(limit, query, type) {
 	try {
-		const response = await fetch(`https://api.jikan.moe/v4/anime?limit=${limit}&query=${query}&type={type}`);
+		const response = await fetch(`https://api.jikan.moe/v4/anime?limit=${limit}&q=${query}&type=${type}`);
 		if (!response.ok) throw new Error('falló');
 		const dataanime = await response.json();
 		renderDataAnime(dataanime);
@@ -185,8 +191,13 @@ function renderDataAnime(dataanime) {
 	const container = document.getElementById('anime-container');
 	container.innerHTML = ''; // Clear previous data
 
-	const div = document.createElement('div');
-	div.className = 'item';
-	div.innerHTML = ` <p>${dataanime?.fact}</p>`;
-	container.appendChild(div);
+	dataanime.data.forEach((anime) => {
+		const div = document.createElement('div');
+		div.className = 'item';
+		div.innerHTML = `
+		<p>${anime.title}</p>
+		<img src="${anime.images.jpg.image_url}" alt="${anime.title}">
+	`;
+		container.appendChild(div);
+	});
 }

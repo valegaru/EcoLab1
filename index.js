@@ -16,6 +16,7 @@ document.getElementById('fetchbit-button').addEventListener('click', fetchDataBi
 // }
 
 async function fetchDataBit() {
+	renderLoading('bit-container');
 	try {
 		const response = await fetch('https://api.coindesk.com/v1/bpi/currentprice.json');
 		if (!response.ok) throw new Error('falló');
@@ -53,6 +54,7 @@ function renderData(databit) {
 document.getElementById('fetchcat-button').addEventListener('click', fetchDataCat);
 
 async function fetchDataCat() {
+	renderLoading('cat-container');
 	try {
 		const response = await fetch('https://catfact.ninja/fact');
 		if (!response.ok) throw new Error('falló');
@@ -85,75 +87,6 @@ function renderDatacat(datacat) {
 	container.appendChild(div);
 }
 
-document.getElementById('fetchcat-button').addEventListener('click', fetchDataCat);
-
-async function fetchDataCat() {
-	try {
-		const response = await fetch('https://catfact.ninja/fact');
-		if (!response.ok) throw new Error('falló');
-		const datacat = await response.json();
-		renderDatacat(datacat);
-	} catch (error) {
-		renderErrorcat();
-	}
-}
-
-function renderLoadingcat() {
-	const container = document.getElementById('cat-container');
-	container.innerHTML = ''; //vaciar el contenedor
-	container.innerHTML = '<p>Loading...</p>';
-}
-
-function renderErrorcat() {
-	const container = document.getElementById('cat-container');
-	container.innerHTML = ''; //vaciar el contenedor
-	container.innerHTML = '<p>Opps, error...</p>';
-}
-
-function renderDatacat(datacat) {
-	const container = document.getElementById('cat-container');
-	container.innerHTML = ''; // Clear previous data
-
-	const div = document.createElement('div');
-	div.className = 'item';
-	div.innerHTML = ` <p>${datacat?.fact}</p>`;
-	container.appendChild(div);
-}
-
-document.getElementById('fetchcat-button').addEventListener('click', fetchDataCat);
-
-async function fetchDataCat() {
-	try {
-		const response = await fetch('https://catfact.ninja/fact');
-		if (!response.ok) throw new Error('falló');
-		const datacat = await response.json();
-		renderDatacat(datacat);
-	} catch (error) {
-		renderErrorcat();
-	}
-}
-
-function renderLoadingcat() {
-	const container = document.getElementById('cat-container');
-	container.innerHTML = ''; //vaciar el contenedor
-	container.innerHTML = '<p>Loading...</p>';
-}
-
-function renderErrorcat() {
-	const container = document.getElementById('cat-container');
-	container.innerHTML = ''; //vaciar el contenedor
-	container.innerHTML = '<p>Opps, error...</p>';
-}
-
-function renderDatacat(datacat) {
-	const container = document.getElementById('cat-container');
-	container.innerHTML = ''; // Clear previous data
-
-	const div = document.createElement('div');
-	div.className = 'item';
-	div.innerHTML = ` <p>${datacat?.fact}</p>`;
-	container.appendChild(div);
-}
 
 /////
 // Fetch Anime
@@ -165,6 +98,7 @@ document.getElementById('fetchanime-button').addEventListener('click', () => {
 });
 
 async function fetchDataAnime(limit, query, type) {
+	renderLoading('anime-container');
 	try {
 		const response = await fetch(`https://api.jikan.moe/v4/anime?limit=${limit}&q=${query}&type=${type}`);
 		if (!response.ok) throw new Error('falló');
@@ -200,4 +134,12 @@ function renderDataAnime(dataanime) {
 	`;
 		container.appendChild(div);
 	});
+}
+
+document.getElementById('clear-button').addEventListener('click', clearForm);
+function clearForm() {
+	document.getElementById('limit').value = '';
+	document.getElementById('search').value = '';
+	document.getElementById('category').value = 'tv';
+	document.getElementById('anime-container').innerHTML = '';
 }

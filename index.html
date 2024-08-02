@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Fetch API Example</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+			}
+			#data-container {
+				margin-top: 20px;
+			}
+			.item {
+				margin-bottom: 10px;
+			}
+			img {
+				max-width: 300px;
+				border: 2px solid #ccc;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Fetch Bitcoin price (United States Dollars)</h1>
+		<button id="fetchbit-button">Fetch Bitcoin price</button>
+		<div id="bit-container"></div>
+
+    <h1>Fetch Random Cat Fact</h1>
+		<button id="fetchcat-button">Fetch Fact</button>
+		<div id="cat-container"></div>
+
+
+      <h1>Fetch Anime </h1>
+      <section id="header">
+        <form class="my-form"></form>
+          <label for="limit">limit</label><br>
+						<input type="number" id="limit" name="limit" placeholder="Enter limit number">
+          <label for="search">Search</label><br>
+						<input type="search" id="search" name="search" placeholder="Enter key word">
+          <label for="category">Category</label><br>
+						<input type="select" id="category" name="category" placeholder="select category">
+            <button id="fetchanime-button">Fetch Fact</button>
+              </form>
+              <div id="anime-container"></div>
+
+
+		<script src="index.js"></script>
+	</body>
+</html>

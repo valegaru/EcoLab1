@@ -3,57 +3,50 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Fetch API Example</title>
-		<style>
-			body {
-				font-family: Arial, sans-serif;
-			}
-			#data-container {
-				margin-top: 20px;
-			}
-			.item {
-				margin-bottom: 10px;
-			}
-			img {
-				max-width: 300px;
-				border: 2px solid #ccc;
-				border-radius: 10px;
-			}
-		</style>
+		<title>Fetch API LAB</title>
+		<link rel="stylesheet" href="index.css" />
 	</head>
 	<body>
-		<h1>Fetch Bitcoin price (United States Dollars)</h1>
-		<button id="fetchbit-button">Fetch Bitcoin price</button>
-		<div id="bit-container"></div>
+		<div class="container">
+			<h1>Fetch API LAB</h1>
 
-		<h1>Fetch Random Cat Fact</h1>
-		<button id="fetchcat-button">Fetch Fact</button>
-		<div id="cat-container"></div>
+			<section>
+				<h2>Fetch Bitcoin Price (USD)</h2>
+				<button id="fetchbit-button" class="button">Fetch Bitcoin Price</button>
+				<div id="bit-container" class="data-container"></div>
+			</section>
 
-		<h1>Fetch Anime</h1>
-		<section id="header">
-			<form class="my-form">
-				<label for="limit">Limit</label><br />
-				<input type="number" id="limit" name="limit" placeholder="Enter limit number" /><br />
-				<label for="search">Search</label><br />
-				<input type="search" id="search" name="search" placeholder="Enter key word" /><br />
-				<label for="category">Category</label><br />
-				<select id="category" name="category">
-					<option value="tv">TV</option>
-					<option value="movie">Movie</option>
-					<option value="ova">OVA</option>
-					<option value="special">Special</option>
-					<option value="ona">ONA</option>
-					<option value="music">Music</option>
-					<option value="cm">CM</option>
-					<option value="pv">PV</option>
-					<option value="tv_special">TV Special</option> </select
-				><br />
-				<button type="button" id="fetchanime-button">Fetch Anime</button>
-				<button type="button" id="clear-button">Clear</button>
-			</form>
-			<div id="anime-container"></div>
-		</section>
+			<section>
+				<h2>Fetch Random Cat Fact</h2>
+				<button id="fetchcat-button" class="button">Fetch Cat Fact</button>
+				<div id="cat-container" class="data-container"></div>
+			</section>
+
+			<section>
+				<h2>Fetch Anime</h2>
+				<form class="my-form">
+					<label for="limit">Limit</label><br />
+					<input type="number" id="limit" name="limit" placeholder="Enter limit number" /><br />
+					<label for="search">Search</label><br />
+					<input type="search" id="search" name="search" placeholder="Enter keyword" /><br />
+					<label for="category">Category</label><br />
+					<select id="category" name="category">
+						<option value="tv">TV</option>
+						<option value="movie">Movie</option>
+						<option value="ova">OVA</option>
+						<option value="special">Special</option>
+						<option value="ona">ONA</option>
+						<option value="music">Music</option>
+						<option value="cm">CM</option>
+						<option value="pv">PV</option>
+						<option value="tv_special">TV Special</option> </select
+					><br />
+					<button type="button" id="fetchanime-button" class="button">Fetch Anime</button>
+					<button type="button" id="clear-button" class="button">Clear</button>
+				</form>
+				<div id="anime-container" class="data-container"></div>
+			</section>
+		</div>
 
 		<script src="index.js"></script>
 	</body>

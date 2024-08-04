@@ -1,20 +1,5 @@
 document.getElementById('fetchbit-button').addEventListener('click', fetchDataBit);
 
-// function fetchData() {
-// 	//mostrar loading
-// 	renderLoading();
-// 	// write your fetch here
-// 	fetch('https://dog.ceo/api/breeds/image/random')
-// 		.then((response) => {
-// 			if (!response.ok) throw new Error('falló');
-// 			return response.json(); //al usar llaves se debe usar un retorno explicito
-// 		})
-// 		.then((data) => renderData(data))
-// 		.catch((error) => {
-// 			renderError();
-// 		});
-// }
-
 async function fetchDataBit() {
 	renderLoading('bit-container');
 	try {

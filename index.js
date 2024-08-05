@@ -39,7 +39,7 @@ function renderData(databit) {
 document.getElementById('fetchcat-button').addEventListener('click', fetchDataCat);
 
 async function fetchDataCat() {
-	renderLoading('cat-container');
+	renderLoadingcat('cat-container');
 	try {
 		const response = await fetch('https://catfact.ninja/fact');
 		if (!response.ok) throw new Error('falló');
@@ -83,7 +83,7 @@ document.getElementById('fetchanime-button').addEventListener('click', () => {
 });
 
 async function fetchDataAnime(limit, query, type) {
-	renderLoading('anime-container');
+	renderLoadingAnime('anime-container');
 	try {
 		const response = await fetch(`https://api.jikan.moe/v4/anime?limit=${limit}&q=${query}&type=${type}`);
 		if (!response.ok) throw new Error('falló');
